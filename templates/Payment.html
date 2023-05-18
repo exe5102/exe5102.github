@@ -1,0 +1,80 @@
+{% extends 'Base.html' %}
+
+{% block title %} 離場繳費 {% endblock %}
+
+{% block header %}
+<div class="row">
+    <div class="col-12">
+
+        <!-- Text -->
+        <section class="box">
+            <form action="/Payment" method="post">
+                <div class="row gtr-uniform gtr-50">
+                    <div class="col-12 col-12-mobilep">
+                        <input type="text" name="Unumber" id="Unumber" value="" placeholder="車牌號碼" />
+                        <br>
+                        <input type="text" name="amount" id="amount" value="" placeholder="輸入金額" />
+                    </div>
+                </div>
+                <br>
+                <div class="col-3 col-12-mobilep">
+                    <input type="submit" value="確定" />
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+<!-- <section class="box">
+
+    <div class="table-wrapper">
+        <table>
+            <h3>繳費資料</h3>
+            <thead>
+                <tr>
+                    <th>
+                        <h4>電話</h4>
+                    </th>
+                    <th>
+                        <h4>車位</h4>
+                    </th>
+                    <th>
+                        <h4>車牌</h4>
+                    </th>
+                    <th>
+                        <h4>訂位時間</h4>
+                    </th>
+                    <th>
+                        <h4>金額</h4>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if DBfatch%}
+                <tr>
+                    <td>{{ DBfatch[0] }}</td>
+                    <td>{{ DBfatch[1] }}</td>
+                    <td>{{ DBfatch[2] }}</td>
+                    <td>{{ DBfatch[3] }}</td>
+                    <td>{{ Pamount }}</td>
+                </tr>
+
+                {% else %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                {% endif %}
+
+            </tbody>
+        </table>
+    </div>
+</section> -->
+{% endblock %}
+{% block box %}
+<ul class="actions special">
+    <li><a href="{{ url_for('index') }}" class="button primary">回首頁</a></li>
+</ul>
+{% endblock %}
