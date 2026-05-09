@@ -10,6 +10,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}" />		<!-- 改過了 -->
+		{% block extra_head %}{% endblock %}
 	</head>
 	<body class="is-preload">
 		<div id="page-wrapper">
@@ -18,19 +19,23 @@
 			<header id="header">
 				<h1><a href="{{ url_for('index') }}">線上訂位系統</a></h1>
 				<nav id="nav">
+					{% block nav %}
 					<ul>
 						<li><a href="{{ url_for('index') }}">首頁</a></li>
 					</ul>
+					{% endblock %}
 				</nav>
 			</header>
 
 			<!-- Main -->
+			{% block content %}
 				<section id="main" class="container">
 					<header>
 					{% block header %}{% endblock %}
 					</header>
 					{% block box %}{% endblock %}
 				</section>
+			{% endblock %}
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="icons">
@@ -56,6 +61,6 @@
 		<script src="{{ url_for('static', filename= 'js/breakpoints.min.js') }}"></script>
 		<script src="{{ url_for('static', filename= 'js/util.js') }}"></script>
 		<script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
-
+		{% block extra_scripts %}{% endblock %}
 	</body>
 </html>
